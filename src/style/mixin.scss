@@ -1,0 +1,27 @@
+/* 变量定义
+*/
+// 主题色
+$mainColor: #d53b35;
+$lightColor: #bb1f18;
+$uncolor: #c4c4c4;
+
+@mixin comfirmBtn {
+    width: 100%;
+    // border-radius: 0.2rem;
+    background-color: $mainColor;
+    color: #fff;
+    font-size: 0.32rem;
+    &:active {
+        background-color: $lightColor;
+    }
+}
+@mixin cancelBtn {
+    width: 100%;
+    // border-radius: 0.2rem;
+    background-color: $lightColor;
+    color: #fff;
+    font-size: 0.32rem;
+    &:active {
+        background-color: $mainColor;
+    }
+}
