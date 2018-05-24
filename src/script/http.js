@@ -2,10 +2,12 @@ import axios from 'axios'
 import {delCookie,getCookie, setSession, getSession, getStore} from '@/script/util'
 import router from '@/router/index'
 import qs from 'qs'
+import apis from '@/config/apis'
 
 
 // axios 配置 根据实际接口配置IP地址
-var baseUrl = 'https://report.xh-mind.com:8443/';
+// var baseUrl = 'https://report.xh-mind.com:8443/';
+var baseUrl = apis.main;
 
 axios.defaults.timeout = 5000;
 axios.defaults.baseURL = baseUrl; //这是调用数据接口
