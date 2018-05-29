@@ -14,7 +14,6 @@ import VueResource from 'vue-resource'
 import { RadioGroup, Radio, Icon , Input} from 'iview';
 import '../theme/iview.css';
 // import 'http://210.13.50.98:10141/res/appjs/XAppjsBridgeServer.js';
-
 Vue.component('Radio', Radio);
 Vue.component('Icon', Icon);
 Vue.component('Input', Input);

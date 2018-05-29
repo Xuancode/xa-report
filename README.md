@@ -11,8 +11,11 @@ npm install
 # serve with hot reload at localhost:8082    跑起项目默认端口号8082
 npm run dev
 
-# build for production with minification     项目打包
-npm run build
+# build for xhtest with minification     项目打包兴海环境
+npm run buildxhtest
+
+# build for xatest with minification     项目打包雄安环境
+npm run buildxatest
 
 # build for production and view the bundle analyzer report
 npm run build --report
