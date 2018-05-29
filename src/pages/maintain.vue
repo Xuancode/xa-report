@@ -35,7 +35,8 @@
         </div>
         <div class="photograph" v-if="urlAddressArr.length!=3" @click="getPhoto()">
         <!-- <div class="photograph" v-if="urlAddressArr.length!=3"> -->
-          <div class="camera_div"></div>
+          <div class="camera_div">
+          </div>
           <!-- <input id="input" ref="uploadImg" type="file" accept="image/*" @change="getImg($event)"> -->
         </div>
       </div>
@@ -464,7 +465,7 @@ import Vue from 'vue'
           display:inline-block;
           height: 1.05rem;
           width:2rem;
-          background: url('https://yq.xhmind.com:8087/static/camera.png');
+          background: url('../images/camera.png');
           background-size: 100% 100%;
           &:active {
             // background: url('http://202.105.96.131:3002/xa/static/camera_active.png');
