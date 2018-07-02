@@ -1,0 +1,43 @@
+<!DOCTYPE html><html><head><meta charset=utf-8><meta content="initial-scale=1,minimum-scale=1,maximum-scale=2,user-scalable=no,width=device-width" name=viewport><style type=text/css>/* 简单进行默认样式重置 */
+
+  * {
+    margin: 0;
+    padding: 0
+  }
+
+  li {
+    list-style: none;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  img {
+    vertical-align: middle;
+  }
+
+  body {
+    background-color: #ffffff
+  }
+
+  html {
+    background-color: #ffffff
+  }
+  /**/</style><title></title><link href=./static/css/app.ed819daffd10c0601d1fbff33221965e.css rel=stylesheet></head><script src=http://html5-xiongan.youedata.com/appjs/XAppjsBridgeServer.js></script><body ontouchstart=""><div id=app></div><script type=text/javascript src=./static/js/manifest.3ad1d5771e9b13dbdad2.js></script><script type=text/javascript src=./static/js/vendor.d004bc5b39076de8b66e.js></script><script type=text/javascript src=./static/js/app.e1e1991083f4081b9f43.js></script></body><script type=text/javascript charset=utf-8 async defer=defer>// 基准值为750px 设计稿
+(function(doc, win) {
+  var docEl = doc.documentElement,
+    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+    recalc = function() {
+      var clientWidth = docEl.clientWidth;
+      if (!clientWidth) return;
+      if (clientWidth >= 750) {
+        docEl.style.fontSize = '100px';
+      } else {
+        docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+      }
+    };
+  if (!doc.addEventListener) return;
+  win.addEventListener(resizeEvt, recalc, false);
+  doc.addEventListener('DOMContentLoaded', recalc, false);
+})(document, window);</script></html>

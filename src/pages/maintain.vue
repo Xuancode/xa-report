@@ -122,7 +122,7 @@ import Vue from 'vue'
               color: '#1478e3'  // 雄安通h5菜单专用颜色
             });
               XAppJSBridge.call('showOptionMenu');
-              let checkUrl = window.location.protocol + '//' + window.location.host + '/#/inquiry';
+              let checkUrl = window.location.href + '/inquiry';
               document.addEventListener('optionMenu', function(e) {
               XAppJSBridge.call('pushWindow', {
               url: checkUrl,
@@ -220,10 +220,11 @@ import Vue from 'vue'
           return
         }
 
-        this.ready(function(){
-          XAppJSBridge.call('showLoading', { text: '提交中',
-          });
-        })
+        // 由于容器的api频频改动先不使用别的api
+        // this.ready(function(){
+        //   XAppJSBridge.call('showLoading', { text: '提交中',
+        //   });
+        // })
         this.submiting = true;
         for (var i=0; i<this.urlAddressArr.length; i++) {
           this.imgFile[i] = this.base64ToBlob(this.urlAddressArr[i]);
@@ -234,9 +235,12 @@ import Vue from 'vue'
             pic.append('files', _this.imgFile[i])
           }
           this.$post('/ssh/v1/appBase/filesUpload', pic, '', 'upImg').then(res => {
-              if(res.errorCode !== 200){
-                this.content('图片上传失败');
-              return
+              if (res.errorCode == 204) {
+                this.content('请勿重复报事');
+                return
+              } else if (res.errorCode != 200) {
+                this.content('报事上传失败！');
+                return
               }
             _this.$post('/ssh/SysWarning/addWarningByWeb',{
               projectCode: 'XACS001',
@@ -247,9 +251,9 @@ import Vue from 'vue'
               address:_this.uaerAddress,
               reportType: _this.caseType
             }).then(res => {
-              this.ready(function(){
-                XAppJSBridge.call('hideLoading')
-              })
+              // this.ready(function(){
+              //   XAppJSBridge.call('hideLoading')
+              // })
               if (res.errorCode === 200) {
                 _this.oddNumbers = res.result;
                 _this.showTip = true;
@@ -260,18 +264,18 @@ import Vue from 'vue'
                 return
               }
             }).catch(err=>{
-                this.ready(function(){
-                  XAppJSBridge.call('hideLoading')
-                })
+                // this.ready(function(){
+                //   XAppJSBridge.call('hideLoading')
+                // })
                 console.log(err)
                 this.content('请求失败！');
                 this.submiting = false;
                 return
             })
           }).catch(err=>{
-                this.ready(function(){
-                  XAppJSBridge.call('hideLoading')
-                })
+                // this.ready(function(){
+                //   XAppJSBridge.call('hideLoading')
+                // })
                 this.content('请求失败！');
                 this.submiting = false;
                 return
@@ -286,9 +290,9 @@ import Vue from 'vue'
             address:_this.uaerAddress,
             reportType: _this.caseType
           }).then(res => {
-            this.ready(function(){
-              XAppJSBridge.call('hideLoading')
-            })
+            // this.ready(function(){
+            //   XAppJSBridge.call('hideLoading')
+            // })
             if (res.errorCode === 200) {
               _this.oddNumbers = res.result;
               _this.showTip = true;
@@ -299,9 +303,9 @@ import Vue from 'vue'
               return
             }
           }).catch(err=>{
-              this.ready(function(){
-                XAppJSBridge.call('hideLoading')
-              })
+              // this.ready(function(){
+              //   XAppJSBridge.call('hideLoading')
+              // })
               this.content('请求失败！');
               this.submiting = false;
               return
